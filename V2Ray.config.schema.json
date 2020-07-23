@@ -1354,6 +1354,48 @@
 							"tag": {
 								"description": "此负载均衡器的标识，用于匹配RuleObject中的balancerTag",
 								"type": "string"
+							},
+							"strategy": {
+								"type": "string",
+								"enum": [
+									"latency"
+								],
+								"default": "latency"
+							},
+							"interval": {
+								"description": "秒，每次测速之间的最少时间间隔",
+								"type": "number",
+								"default": 300
+							},
+							"totalMeasures": {
+								"description": " 每次测速中对每个 outbound 所做的请求次数",
+								"type": "number",
+								"default": 2
+							},
+							"delay": {
+								"description": "秒，每个测速请求之间的时间间隔",
+								"type": "number",
+								"default": 1
+							},
+							"timeout": {
+								"description": "秒，测速请求的超时时间",
+								"type": "number",
+								"default": 6
+							},
+							"tolerance": {
+								"description": "毫秒，可接受的延迟波动范围，切换最佳节点会将此波动范围考虑进去",
+								"type": "number",
+								"default": 300
+							},
+							"probeTarget": {
+								"description": "测速请求发送的目的地",
+								"type": "string",
+								"default": "tls:www.google.com:443"
+							},
+							"probeContent": {
+								"description": "测速请求内容",
+								"type": "string",
+								"default": "HEAD / HTTP/1.1\r\n\r\n"
 							}
 						}
 					}
